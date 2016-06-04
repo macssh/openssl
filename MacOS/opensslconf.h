@@ -124,3 +124,6 @@ YOU SHOULD NOT HAVE BOTH DES_RISC1 AND DES_RISC2 DEFINED ! !!!!
 #ifndef __POWERPC__
 # define MD32_XARRAY
 #endif
+
+/* Disable krb5 */
+#define OPENSSL_NO_KRB5

@@ -127,3 +127,7 @@ YOU SHOULD NOT HAVE BOTH DES_RISC1 AND DES_RISC2 DEFINED ! !!!!
 
 /* Disable krb5 */
 #define OPENSSL_NO_KRB5
+
+/* unistd */
+#undef OPENSSL_UNISTD
+#define OPENSSL_UNISTD <unistd.h>

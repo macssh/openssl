@@ -1499,11 +1499,8 @@ STACK_OF(X509_NAME) *SSL_load_client_CA_file(const char *file);
 int SSL_add_file_cert_subjects_to_stack(STACK_OF(X509_NAME) *stackCAs,
                                         const char *file);
 #  ifndef OPENSSL_SYS_VMS
-/* XXXXX: Better scheme needed! [was: #ifndef MAC_OS_pre_X] */
-#   ifndef OPENSSL_SYS_MACINTOSH_CLASSIC
 int SSL_add_dir_cert_subjects_to_stack(STACK_OF(X509_NAME) *stackCAs,
                                        const char *dir);
-#   endif
 #  endif
 
 # endif

@@ -131,3 +131,15 @@ YOU SHOULD NOT HAVE BOTH DES_RISC1 AND DES_RISC2 DEFINED ! !!!!
 /* unistd */
 #undef OPENSSL_UNISTD
 #define OPENSSL_UNISTD <unistd.h>
+
+#define OPENSSL_NO_SPEED
+
+/* Dynamic engine loading is not gonna happen */
+#define ENGINESDIR ""
+
+#define OPENSSL_NO_HW
+#define OPENSSL_NO_GMP
+
+/* Disable ciphers not used by libssh2 */
+#define OPENSSL_NO_CAMELLIA
+#define OPENSSL_NO_SEED

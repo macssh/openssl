@@ -339,7 +339,7 @@ struct evp_cipher_st {
                  const unsigned char *iv, int enc);
     /* encrypt/decrypt data */
     int (*do_cipher) (EVP_CIPHER_CTX *ctx, unsigned char *out,
-                      const unsigned char *in, unsigned int inl);
+                      const unsigned char *in, size_t inl);
     /* cleanup ctx */
     int (*cleanup) (EVP_CIPHER_CTX *);
     /* how big ctx->cipher_data needs to be */

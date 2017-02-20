@@ -75,7 +75,7 @@ static int des_ctrl(EVP_CIPHER_CTX *c, int type, int arg, void *ptr);
  */
 
 static int des_ecb_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                          const unsigned char *in, unsigned int inl)
+                          const unsigned char *in, size_t inl)
 {
     BLOCK_CIPHER_ecb_loop()
         DES_ecb_encrypt((DES_cblock *)(in + i), (DES_cblock *)(out + i),
@@ -84,7 +84,7 @@ static int des_ecb_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 }
 
 static int des_ofb_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                          const unsigned char *in, unsigned int inl)
+                          const unsigned char *in, size_t inl)
 {
     DES_ofb64_encrypt(in, out, (long)inl, ctx->cipher_data,
                       (DES_cblock *)ctx->iv, &ctx->num);
@@ -92,7 +92,7 @@ static int des_ofb_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 }
 
 static int des_cbc_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                          const unsigned char *in, unsigned int inl)
+                          const unsigned char *in, size_t inl)
 {
     DES_ncbc_encrypt(in, out, (long)inl, ctx->cipher_data,
                      (DES_cblock *)ctx->iv, ctx->encrypt);
@@ -100,7 +100,7 @@ static int des_cbc_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 }
 
 static int des_cfb64_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                            const unsigned char *in, unsigned int inl)
+                            const unsigned char *in, size_t inl)
 {
     DES_cfb64_encrypt(in, out, (long)inl, ctx->cipher_data,
                       (DES_cblock *)ctx->iv, &ctx->num, ctx->encrypt);
@@ -112,7 +112,7 @@ static int des_cfb64_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
  * way, so wrap it here
  */
 static int des_cfb1_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                           const unsigned char *in, unsigned int inl)
+                           const unsigned char *in, size_t inl)
 {
     unsigned int n;
     unsigned char c[1], d[1];
@@ -128,7 +128,7 @@ static int des_cfb1_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 }
 
 static int des_cfb8_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
-                           const unsigned char *in, unsigned int inl)
+                           const unsigned char *in, size_t inl)
 {
     DES_cfb_encrypt(in, out, 8, inl, ctx->cipher_data, (DES_cblock *)ctx->iv,
                     ctx->encrypt);

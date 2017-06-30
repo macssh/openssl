@@ -142,6 +142,9 @@ YOU SHOULD NOT HAVE BOTH DES_RISC1 AND DES_RISC2 DEFINED ! !!!!
 
 /* Disable ciphers not used by libssh2 */
 #define OPENSSL_NO_CAMELLIA
+#define OPENSSL_NO_EC
+#define OPENSSL_NO_ECDSA
+#define OPENSSL_NO_ECDH
 #define OPENSSL_NO_MD2
 #define OPENSSL_NO_MDC2
 #define OPENSSL_NO_SEED
